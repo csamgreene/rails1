@@ -32,8 +32,9 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
-  # Pretty printed test output
-  gem 'turn', '0.8.2', :require => false
+  gem 'capybara', '1.1.2'
+  gem 'rspec', '2.7.0'
+  gem 'rspec-rails', '2.7.0'
 end
 
 gem 'ruote', :git => 'git://github.com/jmettraux/ruote.git'
