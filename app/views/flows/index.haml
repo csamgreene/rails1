@@ -1,0 +1,8 @@
+
+%h1 flows
+
+%ul
+  - @flows.each do |flow|
+    %li
+      = link_to flow, launch_flow_path(flow), :method => :post
+
