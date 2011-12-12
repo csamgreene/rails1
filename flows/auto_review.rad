@@ -1,0 +1,10 @@
+
+define 'auto_review'
+
+  cursor
+
+    review_bot
+    chris task: "final review"
+
+    rewind unless: "${approved}"
+
