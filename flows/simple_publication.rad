@@ -4,7 +4,7 @@ define 'simple publication'
 
     author
 
-    create_document
+    write_document
 
     reviewer
     rewind unless: '${approved}'

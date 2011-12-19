@@ -1,0 +1,23 @@
+
+<h1>workitem <%= params[:id].split('!').last %> for <%= params[:username] %> as <%= @workitem.participant_name %></h1>
+
+<%= form_for('update') do |form| %>
+
+  <%= hidden_field_tag('field_stamp', params[:username]) %><br/>
+
+  doc name:<br/>
+  <pre><%= @workitem.fields['doc_name'] %></pre>
+
+  doc content:<br/>
+  <pre><%= Document.read(@workitem.fields['doc_name']) %></pre>
+
+  approved:<br/>
+  <%= check_box_tag('field_approved', 'true') %>
+
+  <br/>
+
+  <%= submit_tag 'proceed' %>
+  <%= submit_tag 'update' %>
+  <%= submit_tag 'cancel' %>
+<% end %>
+

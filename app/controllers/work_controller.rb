@@ -11,12 +11,23 @@ class WorkController < ApplicationController
   def show
 
     @workitem = RuoteKit.storage_participant.by_fei(params[:id])
+
+    render_form_if_any
   end
 
   def update
 
     @workitem = RuoteKit.storage_participant.by_fei(params[:id])
-    @workitem.fields = Rufus::Json.decode(params[:fields])
+
+    if params[:fields]
+      @workitem.fields = Rufus::Json.decode(params[:fields])
+    else
+      params.keys.select { |k|
+        k.to_s.match(/^field_/)
+      }.each { |f|
+        @workitem.fields[f.to_s[6..-1]] = params[f]
+      }
+    end
 
     if params[:commit] == 'proceed'
 
@@ -32,6 +43,23 @@ class WorkController < ApplicationController
     end
 
     redirect_to work_path(params[:username])
+  end
+
+  protected
+
+  def render_form_if_any
+
+    forms = Rails.root.join('app/views/work/forms/')
+
+    pname = @workitem.participant_name
+    task = (@workitem.fields['params']['task'] || 'NONE').strip.gsub(' ', '_')
+
+    [ "#{pname}__#{task}.erb", "#{task}.erb", "#{pname}.erb" ].each do |f|
+
+      path = forms.join(f).to_s
+
+      render :file => path if File.exist?(path)
+    end
   end
 end
 

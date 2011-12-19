@@ -1,0 +1,20 @@
+
+<h1>workitem <%= params[:id].split('!').last %> for <%= params[:username] %> as <%= @workitem.participant_name %></h1>
+
+<%= form_for('update') do |form| %>
+
+  <%= hidden_field_tag('field_stamp', params[:username]) %><br/>
+
+  doc name:<br/>
+  <%= text_field_tag('field_doc_name', @workitem.fields['doc_name'] || '') %><br/>
+
+  doc content:<br/>
+  <%= text_area_tag('field_doc_content', '', :style => 'width: 420px; height: 210px; font-family: sans-serif; font-size: 14px') %><br/>
+
+  <br/>
+
+  <%= submit_tag 'proceed' %>
+  <%= submit_tag 'update' %>
+  <%= submit_tag 'cancel' %>
+<% end %>
+

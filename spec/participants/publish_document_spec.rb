@@ -15,7 +15,7 @@ describe PublishDocument do
 
   it 'creates documents under public/docs/' do
 
-    name = "spec_#{(Time.now.to_f * 10000).to_i}.txt"
+    name = "spec_#{(Time.now.to_f * 10000).to_i}"
 
     Document.write(name, 'honni soit qui mal y pense')
 
@@ -24,10 +24,7 @@ describe PublishDocument do
     subject.workitem = wi
     subject.on_workitem
 
-    File.read(
-      Rails.root.join(
-        'public/pdfs', File.basename(name, '.txt') + '.pdf')
-    ).should_not == nil
+    File.read(Rails.root.join('public/pdfs', name + '.pdf')).should_not == nil
   end
 end
 

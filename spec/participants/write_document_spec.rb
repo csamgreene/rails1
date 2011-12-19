@@ -14,7 +14,7 @@ describe WriteDocument do
 
   it 'creates documents under public/docs/' do
 
-    name = "spec_#{(Time.now.to_f * 10000).to_i}.txt"
+    name = "spec_#{(Time.now.to_f * 10000).to_i}"
 
     wi = new_workitem(
       'doc_name' => name,
@@ -23,7 +23,9 @@ describe WriteDocument do
     subject.workitem = wi
     subject.on_workitem
 
-    File.read(Rails.root.join('public/docs', name)).should == 'lore ipsum'
+    File.read(
+      Rails.root.join('public/docs', name + '.txt')
+    ).should == 'lore ipsum'
   end
 end
 
