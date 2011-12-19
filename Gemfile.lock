@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/jmettraux/ruote.git
-  revision: 3d6f05ab44bc10b7d572d5780375809f191904dd
+  revision: 0996f40e2e9dae61ecc3174706f876ae757e00d4
   specs:
     ruote (2.2.1)
       parslet (= 1.2.3)
@@ -14,7 +14,7 @@ GIT
 
 GIT
   remote: git://github.com/kennethkalmer/ruote-kit.git
-  revision: 191817aa92715b40b377ce0c28293382a6c47efd
+  revision: 9f1d32880445d210420d47c3ff5cedf16c7f0b28
   specs:
     ruote-kit (2.2.1)
       haml (= 3.1.2)
