@@ -12,3 +12,7 @@ body, p, ol, ul, td {
   line-height: 18px;
 }
 
+div.nav {
+  margin-bottom: 2em;
+}
+

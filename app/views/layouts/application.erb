@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lux, Rails and ruote</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="nav">
+  <%= link_to 'flows', flows_path %>
+  <% %w[ chris ezra ].each do |r| %>
+    <%= link_to "work/#{r}", work_path(r) %>
+  <% end %>
+</div>
+
+<%= yield %>
+
+</body>
+</html>
