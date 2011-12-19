@@ -3,29 +3,30 @@ class WorkController < ApplicationController
 
   def index
 
-    @workitems = RuoteKit.engine.storage_participant.by_participant(
-      params[:username])
+    @workitems = Role.by_user(params[:username]).map { |role|
+      RuoteKit.storage_participant.by_participant(role)
+    }.reduce(&:+)
   end
 
   def show
 
-    @workitem = RuoteKit.engine.storage_participant.by_fei(params[:id])
+    @workitem = RuoteKit.storage_participant.by_fei(params[:id])
   end
 
   def update
 
-    @workitem = RuoteKit.engine.storage_participant.by_fei(params[:id])
+    @workitem = RuoteKit.storage_participant.by_fei(params[:id])
     @workitem.fields = Rufus::Json.decode(params[:fields])
 
     if params[:commit] == 'proceed'
 
-      RuoteKit.engine.storage_participant.proceed(@workitem)
+      RuoteKit.storage_participant.proceed(@workitem)
 
       flash[:notice] = "workitem #{params[:id]} proceeded"
 
     elsif params[:commit] == 'update'
 
-      RuoteKit.engine.storage_participant.update(@workitem)
+      RuoteKit.storage_participant.update(@workitem)
 
       flash[:notice] = "workitem #{params[:id]} updated"
     end

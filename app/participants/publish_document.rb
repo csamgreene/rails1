@@ -1,10 +1,10 @@
 
-class ReviewBot
+class PublishDocument
   include Ruote::LocalParticipant
 
   def on_workitem
 
-    workitem.fields['review_bot'] = `fortune`.lines.first.strip
+    Document.publish(workitem.fields['doc_name'])
 
     reply
   end

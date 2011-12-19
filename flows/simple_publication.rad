@@ -1,0 +1,16 @@
+
+define 'simple publication'
+  cursor
+
+    author
+
+    create_document
+
+    reviewer
+    rewind unless: '${approved}'
+
+    publisher
+    jump to: reviewer, if: '${issue}'
+
+    publish_document
+

@@ -13,7 +13,8 @@ RuoteKit.engine = Ruote::Engine.new(
 # register participants
 
 RuoteKit.engine.register do
-  review_bot ReviewBot
+  write_document WriteDocument
+  publish_document PublishDocument
   catchall
 end
 

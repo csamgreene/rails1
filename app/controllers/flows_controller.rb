@@ -3,17 +3,16 @@ class FlowsController < ApplicationController
 
   def index
 
-    @flows = Dir[Rails.root.join('flows/*.rad')].collect { |pa|
-      File.basename(pa).split('.').first
-    }
+    @flows = Workflow.all
   end
 
   def launch
 
-    wfid = RuoteKit.engine.launch(
-      Rails.root.join('flows', params[:id] + '.rad').to_s)
+    wfid = Workflow.find(params[:id]).launch
 
-    render :text => "launched new flow #{wfid}"
+    flash[:notice] = "launched new flow #{wfid}"
+
+    redirect_to flows_path
   end
 end
 

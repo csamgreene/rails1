@@ -1,6 +1,0 @@
-
-define 'approval0'
-  concurrence
-    ezra task: approve
-    chris task: approve
-

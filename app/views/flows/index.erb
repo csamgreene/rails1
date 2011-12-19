@@ -4,7 +4,7 @@
 <ul>
   <% @flows.each do |flow| %>
     <li>
-      <%= link_to flow, launch_flow_path(flow), :method => :post %>
+      <%= link_to flow.name, launch_flow_path(flow.name), :method => :post %>
     </li>
   <% end %>
 </ul>

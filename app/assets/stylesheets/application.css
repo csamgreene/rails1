@@ -16,3 +16,7 @@ div.nav {
   margin-bottom: 2em;
 }
 
+div.notice {
+  font-style: italic;
+}
+

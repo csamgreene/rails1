@@ -10,10 +10,14 @@
 
 <div class="nav">
   <%= link_to 'flows', flows_path %>
-  <% %w[ chris ezra ].each do |r| %>
+  <% %w[ chris ezra john ].each do |r| %>
     <%= link_to "work/#{r}", work_path(r) %>
   <% end %>
 </div>
+
+<% if notice = flash[:notice] %>
+  <div class="notice"><%= flash.notice %></div>
+<% end %>
 
 <%= yield %>
 
