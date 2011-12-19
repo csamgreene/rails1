@@ -1,5 +1,5 @@
 
-class CreateDocument
+class WriteDocument
   include Ruote::LocalParticipant
 
   def on_workitem
