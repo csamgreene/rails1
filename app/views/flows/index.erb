@@ -1,0 +1,11 @@
+
+<h1>flows</h1>
+
+<ul>
+  <% @flows.each do |flow| %>
+    <li>
+      <%= link_to flow, launch_flow_path(flow), :method => :post %>
+    </li>
+  <% end %>
+</ul>
+

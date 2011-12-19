@@ -1,0 +1,11 @@
+
+<h1>workitem <%= params[:id].split('!').last %> for <%= params[:username] %></h1>
+
+<%= form_for('update') do |form| %>
+  <%= text_area_tag('fields', Rufus::Json.pretty_encode(@workitem.fields), :style => 'width: 420px; height: 210px; font-family: sans-serif; font-size: 14px') %>
+  <br/>
+  <%= submit_tag 'proceed' %>
+  <%= submit_tag 'update' %>
+  <%= submit_tag 'cancel' %>
+<% end %>
+

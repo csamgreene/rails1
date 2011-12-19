@@ -1,0 +1,16 @@
+
+<h1>work for user <%= params[:username] %></h1>
+
+<% if notice = flash[:notice] %>
+  <div class="notice"><%= flash.notice %></div>
+<% end %>
+
+<ul>
+  <% @workitems.each do |wi| %>
+    <li>
+      <%= link_to wi.fei.wfid, workitem_path(params[:username], wi.fei.sid) %>
+      <%= wi.fields.inspect %>
+    </li>
+  <% end %>
+</ul>
+
