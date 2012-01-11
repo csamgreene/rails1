@@ -1,0 +1,1 @@
+{"list":[["^write_document$",["WriteDocument",{}]],["^publish_document$",["PublishDocument",{}]],["^.+$",["Ruote::StorageParticipant",{}]]],"_rev":13,"put_at":"2012-01-10 12:56:25.405363 UTC","_id":"participant_list","type":"configurations"}
